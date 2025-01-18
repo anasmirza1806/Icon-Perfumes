@@ -1,0 +1,81 @@
+1) Landing page
+    Navbar      = DONE
+    Hero Section    = DONE
+    After Hero Content  = DONE
+    Category    = DONE
+    New Arrival products    = DONE
+    1st Banner  = DONE
+    Our products    = DONE
+    Popular Products Slider
+    2nd Banner  = DONE
+    Footer  = DONE
+
+1) Landing Page     = DONE = DONE
+2) Login Register Page  = DONE
+3) User Profile Page    
+4) Whishlist Page   = DONE = DONE
+5) User Orders Page = DONE = DONE
+6) Cart Page    = DONE = DONE
+7) Checkout Page  = DONE = DONE
+8) Products Page    = DONE = DONE
+9) About Page   = DONE = DONE
+10) Contact Page = DONE = DONE   
+11) Error Page  = DONE = DONE
+12) Products Details Page = DONE = DONE
+
+
+3 Banner for slider 
+2 product photo design (1 for limestick,1 for attar)
+3 Photos of Categorey (1 for attar, 1 for limestick,1 for perfume)
+1 Banner for products
+
+
+Navbar size minimum 
+icons ki space jyada h
+ border raduse remove 
+ font color or fonts new
+ New Arrival only 4 products
+ set the video
+ Set Popular products
+ in Products set Margin or padding with content
+ set the gap between buttons
+ footer dont set
+In Canva Imgages Height Long
+and all photos are theme base. 
+
+Heding Fonts = <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+</style>
+font-family: 'Poppins', sans-serif;
+
+
+desciption : para
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
+</style>
+font-family: 'Nunito Sans', sans-serif;
+
+
+Bold Hedings:
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+</style>
+font-family: 'PT Serif', serif;
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+</style>
+font-family: 'Satisfy', cursive;
+
+
+
+Checkout Changes
+Products Description remove on lending page  = done
+Background color #eee 
+Whishlist Page Make it Perfect properly  = done
+
+Add product in Cart
+cart quantity increse and decreace
+
+

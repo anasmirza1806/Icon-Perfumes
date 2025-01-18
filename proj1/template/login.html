@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Login {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/sign_up.css">
+{% endblock css %}
+{% block body %}
+
+<!-- <div class="main-body">
+    <div class="main-form">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="signup">
+            <form>
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <input class="impt" type="text" name="txt" placeholder="username" required="">
+                <input class="impt" type="email" name="email" placeholder="Email" required="">
+                <input class="impt" type="password" name="password" placeholder="password" required="">
+                <button class="impt-btn">Sign up</button>
+            </form>
+        </div>
+        <div class="login">
+            <form>
+                <label for="chk" aria-hidden="true">Login</label>
+                <input class="impt" type="email" name="email" placeholder="Email" required="">
+                <input class="impt" type="password" name="password" placeholder="password" required="">
+                <button class="impt-btn">Login</button>
+                <button class="impt-btn">Forgate Password</button>
+                <p>Don't Have an Account? Sign up </p>
+            </form>
+        </div>
+    </div>
+</div> -->
+<div class="d-flex justify-content-center align-items-center signup">
+    <div class="container-fluid signup-main">
+      <form class="mx-auto" method="post">
+        {% csrf_token %}
+        <h4 class="text-center">Login</h4>
+        <div class="mb-3">
+          <label class="form-label">User Name</label>
+          <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="sign-button mt-5">Login</button>
+      </form>
+      <div class="or mt-4">
+        <p>OR</p>
+        <p class="par">Don't have an account? <a href="{% url 'sign_up' %}">Sign up</a></p>
+      </div>
+      
+    </div>
+  </div>
+
+
+{% endblock %}

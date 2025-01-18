@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Contact {% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="/static/css/contact.css">
+{% endblock css %}
+{% block body %}
+
+
+
+    <div class="container-fluid contact">
+        <div class="container">
+            <div class="head-contact">
+                <h1>Contact Us</h1>
+                <b>Have any queries?</b>
+                <h3>We're here to help.​</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-5 mb-md-0 contact-left">
+                    <div class="content">
+                        <b>Don't be a stranger!</b>
+                        <h1>You tell us. We listen.</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, minima! Ut maiores, quod
+                            saepe
+                            ea nihil enim corporis nam error esse, sint incidunt placeat! Neque nihil at incidunt odit
+                            eos. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro, maiores.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-5 mb-md-0 contact-right">
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" placeholder="NAME">
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" id="c_subject" name="c_subject" placeholder="SUBJECT">
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" id="c_email_address" name="c_email_address"
+                            placeholder="EMAIL">
+                    </div>
+                    <div class="form-group mt-3">
+                        <textarea name="" id="" cols="83" rows="7" placeholder="MESSAGE"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button>SEND MESSAGE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

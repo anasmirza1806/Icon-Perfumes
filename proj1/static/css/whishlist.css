@@ -1,0 +1,114 @@
+.whislist{
+    margin: 30px 0px;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 900;
+    border-bottom: 1px solid #99999c;
+    font-family: 'Poppins', sans-serif;
+}
+.squre{
+    height: 100%;
+    width: 250px;
+    margin: 30px 0px;
+}
+.squre h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.squre h3 i{
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 25px;
+}
+.squre h3 i:hover{
+    color: red;
+}
+.squre .prod-img{
+    background-color: #F4F5F9;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+.squre .prod-img i{
+   font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    opacity: 0;
+    /* transform: scale(0.5);
+    transition: all 1s ease-in; */
+}
+.squre .prod-img:hover i{
+    opacity: 1;
+    /* transform: scale(1); */
+}
+.squre img{
+    height: 320px;
+    width: 250px;
+    /* box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);  */
+    transform: scale(0.9);
+    transition: all 0.5s ease-in;
+}
+.squre img:hover{
+    transform: scale(1);
+}
+.prod-content{
+    margin-top: 20px;
+}
+.prod-content a{
+    text-decoration: none;
+    color: black;
+}
+.prod-content a i{
+    padding-right: 10px;
+    font-size: 16px;
+}
+
+.prod-content .button-cate {
+    width: 100%;
+    padding: 10px;
+    /* margin-right: 350px; */
+    border: 1px solid black;
+    cursor: pointer;
+    text-align: center;
+}
+.prod-content .button-cate p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.prod-content .button-cate:hover {
+    color: white;
+    background-color: black;
+}
+
+@media (max-width: 1024px){
+    .squre{
+        width: 230px;
+    }
+    .squre img{
+        height: 320px;
+        width: 230px;
+    }
+}
+@media (max-width: 550px){
+    .squre{
+        width: 200px;
+    }
+    .squre img{
+        height: 320px;
+        width: 200px;
+    }
+}
+@media (max-width: 440px){
+    .squre{
+        width: 140px;
+    }
+    .squre img{
+        /* height: 320px; */
+        width: 140px;
+    }
+}

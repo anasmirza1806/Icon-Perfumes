@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Orders {% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="/static/css/orders.css">
+{% endblock css %}
+{% block body %}
+
+  <div class="container mt-3 mt-md-5">
+    <h2 class="text-charcoal hidden-sm-down">Your Orders</h2>
+    {% if orders %}
+    {% for order in orders %}
+    <div class="row">
+      <div class="col-12">
+        <div class="list-group mb-5">
+          <div class="list-group-item p-3 bg-snow" style="position: relative;">
+            <div class="row w-100 no-gutters">
+              <div class="col-6 col-md">
+                <h6 class="text-charcoal mb-0 w-100">Order Number</h6>
+                <a href="" class="text-pebble mb-0 w-100 mb-2 mb-md-0">#ICOD{{order.id}}</a>
+              </div>
+              <div class="col-6 col-md">
+                <h6 class="text-charcoal mb-0 w-100">Date</h6>
+                <p class="text-pebble mb-0 w-100 mb-2 mb-md-0">{{order.order_date}}</p>  
+              </div>
+              <div class="col-6 col-md"> 
+                <h6 class="text-charcoal mb-0 w-100">Total</h6>
+                <p class="text-pebble mb-0 w-100 mb-2 mb-md-0">&#8377;{{order.total_amount}}</p> 
+              </div>
+              <div class="col-6 col-md"> 
+                <h6 class="text-charcoal mb-0 w-100">Shipped To</h6>
+                <p class="text-pebble mb-0 w-100 mb-2 mb-md-0">{{order.user}}</p> 
+              </div>
+              <div class="col-12 col-md-3">
+                <a href="" class="btn btn-primary w-100" style="background-color:black">View Order</a>
+              </div>
+            </div>
+            
+          </div>
+          <div class="list-group-item p-3 bg-white">
+            <div class="row no-gutters">
+              <div class="col-12 col-md-9 pr-0 pr-md-3">
+                <div class="alert p-2 alert-success w-100 mb-0">
+                  <h6 class="text-green mb-0"><b>{{order.order_status}}</b></h6>
+                  {% comment %} <p class="text-green hidden-sm-down mb-0">Est. delivery between Aug 5 – Aug 9th, 2017</p> {% endcomment %}
+                </div>
+              </div>
+              {% for item in order_items %}
+              {% if item.order == order %}
+              <div class="row no-gutters mt-3">
+                <div class="col-3 col-md-1">
+                  <img class="img-fluid pr-3" src="{{item.product.product_image.url}}" alt="">
+                </div>
+                <div class="col-9 col-md-8 pr-0 pr-md-3">
+                  <h6 class="text-charcoal mb-2 mb-md-1">
+                    <a href="" class="text-charcoal">{{item.product.product_name}} x {{item.quantity}}</a>
+                  </h6>
+                  <ul class="list-unstyled text-pebble mb-2 small">
+                    <li class="">
+                      <b>Size:</b> L
+                    </li>
+                  </ul>
+                  <h6 class="text-charcoal text-left mb-0 mb-md-2"><b>&#8377;{{item.total_amount_order}}</b></h6>
+                </div>
+                {% comment %} <div class="col-12 col-md-3 hidden-sm-down">
+                  <a href="" class="btn btn-secondary w-100 mb-2">Buy It Again</a>
+                  <a href="" class="btn btn-secondary w-100">Request a Return</a>
+                </div> {% endcomment %}
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <p>You have no any orders yet</p>
+      {% endif %}
+    </div>
+  </div>
+  
+
+  {% endblock body %}

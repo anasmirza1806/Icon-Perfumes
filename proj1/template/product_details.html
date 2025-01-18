@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Products Details {% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="/static/css/product_details.css">
+{% endblock css %}
+{% block body %}
+
+<link rel="stylesheet" href="{% static './css/product_details.css' %}">
+  
+    <div class="container-fluid prod-details">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-6 col-md-6 col-12 left-prod">
+                    <div class="prod-img">
+                        <img src="{{product.product_image.url}}"  alt="" class="img-fluid">
+                    </div>
+                    <div class="row child-img">
+                        <div class="col-lg-4 col-md-4 col-4">
+                            <img src="{{product.product_image.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-4">
+                            <img src="{{product.product_image.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-4">
+                            <img src="{{product.product_image.url}}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 right-prod">
+                    <h3 class="prod-title">{{product.product_name}}</h3>
+                    <div class="review-star">
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <p>4.5 (2047 reviwes)</p>
+                        <span>ICON</span>
+                    </div>
+                    <div class="stock">
+                        <p>Availability: <span>In Stock</span> </p>
+                        <p>Type: <span>{{product.category_id}}</span> </p>
+                    </div>
+                    <span class="prod-desc">
+                        <p>{{product.description}}</p>
+                    </span>
+                    <div class="prod-price d-flex align-items-center">
+                        <p class="orginal">₹350</p>
+                        <p class="discount">₹{{product.price}}</p>
+                    </div>
+                    <!-- <div class="prod-quantity">
+                        <p>Quantity:</p>
+                        <div class="qty-grp">
+                            <span class="minus"><a href=""><i class="fa-solid fa-minus"></i></a></span>
+                            <span class="number"> <a href="">1</a></span>
+                            <span class="plus"><a href=""><i class="fa-solid fa-plus"></i></a></span>
+                        </div>
+                        <p class="mt-3">Subtotal: ₹{{product.price}}</p>
+                    </div> -->
+                    <!-- <div class="prod-button">
+                        <button>Add to Cart</button>
+                        <button>Add to Cart</button>
+                    </div> -->
+                    <form action=" ">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{product.product_name}}" id="prod_id">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a class="button-cate addToCart" pid="{{product.id}}">Add to Cart <i class="fa-solid fa-bag-shopping"></i></a>
+                            <a href="/checkout/buy?product={{product.id}}" class="button-cate">Buy Now <i class="fa-solid fa-bag-shopping"></i></a>
+                        </div>
+                    </form>
+                    
+                    <!-- <div class="d-flex justify-content-center align-items-center">
+                        <a href="" class="button-cate">Buy Now <i class="fa-solid fa-bag-shopping"></i></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

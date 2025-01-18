@@ -1,0 +1,130 @@
+.prod-details{
+    margin: 50px 0px;
+}
+.left-prod .prod-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.left-prod .prod-img img{
+    height: 450px;
+}
+.left-prod .child-img{
+    width: 70%;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+.left-prod .child-img img{
+    height: 150px;
+    cursor: pointer;
+}
+.right-prod .prod-title{
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+.right-prod .review-star{
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.right-prod .review-star span{
+    font-size: 14px;
+    font-weight: 400;
+    color: #aeabab;
+    font-family: 'PT Serif', serif;
+    
+}
+.right-prod .stock{
+    font-weight: 600;
+    font-family: 'PT Serif', serif;
+    font-size: 18px;
+
+}
+.right-prod .stock span{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin-left: 20px;
+}
+.right-prod .prod-desc{
+    font-size: 20px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: rgb(181, 174, 174);
+}
+.right-prod .prod-price .orginal{
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: line-through;
+    font-family: 'Poppins', sans-serif;
+
+}
+.right-prod .prod-price .discount{
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(31, 54, 74);
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.right-prod .prod-quantity p{
+    font-weight: 600;
+    font-size: 20px;
+    /* margin-top: 15px; */
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.right-prod .prod-quantity .qty-grp .minus a{
+    border: 1px solid #000000;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: black;
+}
+.right-prod .prod-quantity .qty-grp .number a{
+    border: 1px solid #000000;
+    padding: 5px 30px;
+    text-decoration: none;
+    color: black;
+    /* font-family: 'Poppins', sans-serif; */
+
+}
+.right-prod .prod-quantity .qty-grp .plus a{
+    border: 1px solid #000000;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.right-prod .button-cate {
+    width: 100%;
+    padding: 10px;
+    /* margin-right: 350px; */
+    border: 1px solid black;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+
+}
+.right-prod .button-cate p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+.right-prod .button-cate:hover {
+    color: white;
+    background-color: black;
+}
+
+
+@media (max-width: 1000px){
+    .left-prod .child-img{
+        width:100%;
+        margin-left: 0px;
+    }
+}

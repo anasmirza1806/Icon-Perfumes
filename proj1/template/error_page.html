@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Error 404 {% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="/static/css/error_page.css">
+{% endblock css %}
+{% block body %}
+
+<link rel="stylesheet" href="{% static './css/error_page.css' %}">
+  
+  <div class="container-fluid hero-section" id="home">
+        <div class="hero">
+            <div class="container">
+                <div class="hero-left">
+                    <h1>Error Occured</h1>
+                    <h3><span> 404 </span> - Page Not Found</h3>
+                    <p>Sorry we Could't find that Page, Don't Worry though,<br> everything is still Awesome!</p>
+                    <p>You might want to try searching again or explore one the link below.</p>
+                        <div class="button">
+                            <a href="{% url 'products' %}">Continue Shopping
+                                <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

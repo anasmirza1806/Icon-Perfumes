@@ -1,0 +1,134 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="no translate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock title %} | ICON </title>
+    {% block css %}{% endblock css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static './css/style.css' %}"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+       
+</head>
+<body>
+
+    <translate=No class=no translate lang="en">
+    <section class="navbar">
+        <div class="mid-nav">
+            <div class="menu-bar toggle" onclick="togglemenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="logo">
+                <img src="/static/img/logo1.png" alt="iconlogo">
+            </div>
+        </div>
+        <div class="right-nav">
+            <div class="cancle-btn toggle" onclick="togglemenu()">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <ul class="nav-ul p-0">
+                <div class="mobile-logo">
+                    <img src="/static/img/logo1.png" alt="iconlogo">
+                </div>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <div class="icon m-2">
+                    <div class="profile"><a href="./login_slide.html"><p class="m-0">Profile </p><i class="fa-regular fa-user"></i></a>
+                    </div>
+                    <div class="wishlist"><a href="./whislist.html"><p class="m-0"> Whishlist</p> <i class="fa-regular fa-heart"></i></a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+        <div class="left-nav">
+            <div class="nav-icon">
+                <div class="search icon"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+                <div class="profile icon">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            {% if request.user.is_authenticated %}
+                            <li><button class="dropdown-item" type="button"><a href="{% url 'orders' %}" style="color: black;">My Orders</a></button></li>
+                            <li><button class="dropdown-item" type="button"><a href="{% url 'logout' %}" style="color: black;">Logout</a></button></li>
+
+                            {% else %}
+                            <li><button class="dropdown-item" type="button"><a href="{% url 'login' %}" style="color: black;">Login</a></button></li>
+                            {% endif %}
+                          <!-- <li><button class="dropdown-item" type="button"><a href="{% url 'sign_up' %}" style="color: black;">Signup</a></button></li> -->
+                        </ul>
+                      </div>
+                </div>
+                <div class="wishlist icon"><a href="{% url 'whishlist' %}"> <i class="fa-regular fa-heart"></i></a></div>
+                <div class="cart icon" onclick="cartbtn()"><a href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i></a></div>
+               
+            </div>
+        </div>
+    </section>
+    
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-dismissible fade show {% if message.tags == "fas fa-solid fa-check check" %}alert-success" {% elif message.tags == "fa-solid fa-exclamation" %}alert-warning" {% elif message.tags == "fa-solid fa-triangle-exclamation" %}alert-danger" {% endif %} role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+    {% else %}
+    <div class="alert d-none alert-dismissible fade show {% if message.tags == "fas fa-solid fa-check check" %}alert-warning" {% elif message.tags == "fa-solid fa-exclamation" %}bg-alert" {% elif message.tags == "fa-solid fa-triangle-exclamation" %}bg-danger" {% endif %} role="alert" style="position: fixed; top: 30px;right: 0 ; z-index: 99999;">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endif %}
+
+    {% block body %}  {% endblock body%}
+
+
+
+    <section class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12 foot-1">
+                    <img src="/static/img/logo1.png" alt="">
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 foot-2">
+                    <h1>Quick Links</h1>
+                    <p>Home</p>
+                    <p>Products</p>
+                    <p>About</p>
+                    <p>Contact</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 foot-3">
+                    <h1>Extra Links</h1>
+                    <p>Privacy & Poolicy</p>
+                    <p>Terms & Conditions</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 foot-4">
+                    <h1>Follow us On</h1>
+                    <p><i class="fa-brands fa-instagram"></i> Instagram</p>
+                    <p><i class="fa-brands fa-twitter"></i> Twitter</p>
+                    <p><i class="fa-brands fa-facebook"></i> Facebook</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+    <script src="/static/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
+        integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+        {% block js %} {% endblock js %}
+</body>
+</html>

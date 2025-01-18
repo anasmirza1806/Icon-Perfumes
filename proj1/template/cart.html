@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Cart {% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="/static/css/cart.css">
+{% endblock css %}
+{% block body %}
+
+
+<body>
+    <div class="container-fluid cart-section cartPage">
+        <div class="container">
+            <div class="row">
+                <h1>Cart</h1>
+                <div class="col-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail"></th>
+                                <th class="product-name">Product</th>
+                                <th class="product-price">Price</th>
+                                <th class="product-quantity">Quantity</th>
+                                <th class="product-total">Total</th>
+                                <th class="product-remove">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart_items %}
+                            <tr>
+                                <td class="product-thumbnail">
+                                    <img src="{{item.product_id.product_image.url}}" alt="Image" class="img-fluid">
+                                </td>
+                                <td class="product-name">
+                                    <h2 class="h5 text-black my-auto">{{item.product_id.product_name}}</h2>
+                                </td>
+                                <td>&#8377;{{item.product_id.price}}</td>
+                                <td>
+                                    <div class="input-group mb-3 d-flex align-items-center quantity-container"
+                                        style="max-width: 120px;">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-black decrease"
+                                                type="button">&minus;</button>
+                                        </div>
+                                        <input type="text" class="form-control text-center quantity-amount" value="{{item.quantity}}"
+                                            placeholder="" aria-label="Example text with button addon"
+                                            aria-describedby="button-addon1">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-black increase plus-cart" pid="{{item.product.id}}" type="button">&plus;</button>
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td>&#8377;{{item.total_cost}}</td>
+                                <td><a href="#" class="btn btn-black btn-sm">X</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6">
+                    <table class="cart-total">
+                        <tr>
+                            <th colspan="2">Cart Total</th>
+                        </tr>
+                        <tr>
+                            <td>subtotal</td>
+                            <td>&#8377;{{subtotal}}</td>
+                        </tr>
+                        <tr>
+                            <td>GST (18%)</td>
+                            <td>&#8377;{{gst}}</td>
+                        </tr>
+                        <tr>
+                            <td class="total">Total</td>
+                            <td class="total">&#8377;{{total_amount}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><a href="{% url 'checkout' 'cart' %}"><button  class="chk-btn">Checkout</button></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="empty_cart_section" class="d-none flex-column m-auto text-center my-5">
+            <div>
+                <h2 class="text-secondary mb-3">Oops ! Your Cart is Empty</h2>
+                <a href="/products/" class="button ">Shop Now</a>
+            </div>
+            <div>
+                <img src="/static/img/empty_cart.jpg" alt="Sidrah" style="width: 50% !important; height: auto !important;">
+            </div>
+        </div>
+    </div>
+{% endblock %}

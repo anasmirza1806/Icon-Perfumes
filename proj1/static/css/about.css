@@ -1,0 +1,52 @@
+.about-section{
+    margin: 50px 0px;
+}
+.heading1 h1{
+    font-weight: 600!important;
+    font-family: 'Poppins', sans-serif;
+    text-align: center !important;
+}
+.content h2{
+    font-weight: 400 !important;
+
+}
+.image{
+    height: 500px !important;
+    width: 100%;
+    margin-left: 50px;
+}
+.content p{
+    text-align: justify;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
+}
+.about-fragrance{
+    margin: 50px 0px !important;
+}
+.about-fragrance .cate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.about-fragrance .cate img{
+    height: 50px;
+    width: 50px;
+}
+.about-fragrance .cate p{
+    text-align: center;
+    font-size: 18px;
+}
+@media (max-width:999px) {
+    .content{
+        letter-spacing: normal;
+        padding: 0%;
+    }
+    .image{
+        margin-left: 0px;
+    }
+    .about-fragrance .cate p{
+        font-size: 14px;
+    }
+}

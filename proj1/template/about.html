@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Index {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/about.css">
+{% endblock css %}
+{% block body %}
+
+<div class="container-fluid about-section">
+    <div class="container">
+        <div class="heading1 pt-5">
+            <h1>ABOUT US</h1>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-12  content">
+                <h2>A Passion Well Pursued</h2>
+                <p> Mr. Noorahmed Was Fond Of Fragrance. He Always Wants To Live Among The Fragrances. He Inspired To
+                    Blend
+                    His Own Fragrance. His Will Power Was Strong. He Decided To Make His Own Blend Of Distinct
+                    Fragrances In
+                    1964. He Started To Find The Way To Blend Own Fragrances. After Very Hard Work And Inventory He Got
+                    Succeed To Blend Own Fragrance.
+
+                    He Started With Procuring Quality Raw Material, Initially From All Corners Of India And Then Even
+                    From
+                    Abroad, He Used To Procure Varied Types Of Natural Essential Oils, Natural Extracts, Natural
+                    Absolutes,
+                    Resinoids, Concretes And Aroma Chemicals Etc And Blend Them To Develop Soul-Steering Fragrances.
+                    In1964,
+                    He Began Selling Fragrances That He Himself Had Developed.
+
+                    And Then, His Hard Work Paid Off. His Unique And Soothing Fragrances Became Famous Across India.
+                    People
+                    And Perfume Sellers Used To Come From Different Corners Of India To Buy The Products Of This Man
+                    Passionate About Perfumery.
+                </p>
+            </div>
+            <div class="col-lg-6 col-12 ">
+                <img src="{% static 'img/photo_faizan1.png' %}" class="img-fluid image" alt="">
+            </div>
+        </div>
+
+        <div class="row about-fragrance">
+            <div class="col-lg-3 col-md-6 col-6 cate">
+                <img src="{% static 'img/spry.png' %}" alt="">
+                <h3>Fruity Fragrance</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatibus cumque temporibus sunt
+                    culpa earum?</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 cate">
+                <img src="{% static 'img/attar.png' %}" alt="">
+                <h3>Floral Fragrance</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatibus cumque temporibus sunt
+                    culpa earum?</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 cate">
+                <img src="{% static 'img/flowers.png' %}" alt="">
+                <h3>Woody Fragrance</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatibus cumque temporibus sunt
+                    culpa earum?</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 cate">
+                <img src="{% static 'img/perfume.png' %}" alt="">
+                <h3>Oud Fragrance</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptatibus cumque temporibus sunt
+                    culpa earum?</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

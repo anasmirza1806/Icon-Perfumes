@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Products {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/product.css">
+{% endblock css %}
+{% block body %}
+
+<link rel="stylesheet" href="{% static './css/product.css' %}">
+<section class="container-fluid products">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 search-right">
+                <input type="search" placeholder="Search . . ."><i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="col-lg-9 left-prod">
+                <div class="row">
+                    <div class="col-lg-6 left-result">
+                        <p> Showing 1-9 of 26 Results.</p>
+                    </div>
+                    <div class="col-lg-6 left-sorting">
+                        <select name="sort" id="1" class="select-sort">
+                            <option value="RELEVANCE">RELEVANCE</option>
+                            <option value="Sort by Latest">Sort by Latest</option>
+                            <option value="Sort by Alphabetically : A to Z">Alphabetically : A to Z</option>
+                            <option value="Sort by Alphabetically : Z to A">Alphabetically : Z to A</option>
+                            <option value="Sort by Price : Low to High">Sort by Price : Low to High</option>
+                            <option value="Sort by Price : Low to High">Sort by Price : Low to High</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-6 filter-cate">
+                        <h3>Categories</h3>
+                        <input type="checkbox" name="Attar" value="Attar"> Attar <br>
+                        <input type="checkbox" name="Limesticks" value="Limesticks"> Limesticks <br>
+                        <input type="checkbox" name="Perfumes" value="Perfumes"> Perfumes <br>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-6 filter-cate">
+                        <h3>Filter by Fregrance</h3>
+                        <input type="checkbox" name="Fruity" value="Fruity"> Fruity <br>
+                        <input type="checkbox" name="Woody" value="Woody"> Woody <br>
+                        <input type="checkbox" name="Floral" value="Floral"> Floral <br>
+                        <input type="checkbox" name="Woody" value="Woody"> Woody <br>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-6 filter-cate">
+                        <h3>Filter by Price</h3>
+                        <input type="checkbox" name="price1" value="150-200"> 150-200 <br>
+                        <input type="checkbox" name="price2" value="201-350"> 201-350 <br>
+                        <input type="checkbox" name="price3" value="350-500"> 350-500 <br>
+                        <input type="checkbox" name="price4" value="501-700"> 500-700 <br>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-6 filter-cate">
+                        <h3>Filter by Seasonal</h3>
+                        <input type="checkbox" name="Winter" value="Winter"> Winter <br>
+                        <input type="checkbox" name="Summer" value="Summer"> Summer <br>
+                        <input type="checkbox" name="Monsoon" value="Monsoon"> Monsoon <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    {% for product in products %}
+                    {% if forloop.counter <= 12 %} <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
+                        <div class="squre">
+                            <!-- <div class="wishlist icon"></div> -->
+                            <div class="prod-img">
+                                <a href="{% url 'product_details' product.id %}"> <i class="fa-regular fa-heart"></i>
+                                    <img src="{{product.product_image.url}}" alt=""></a>
+                            </div>
+                            <div class="prod-content">
+                                <h3>{{product.product_name}}</h3>
+                                <p>{{product.description}}</p>
+                                <p>₹{{product.price}}</p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <a class="button-cate addToCart" pid="{{product.id}}">Add to Cart <i
+                                            class="fa-solid fa-bag-shopping"></i></a>
+
+                                    <!-- <a href="" class="button-cate">Buy Now</a> -->
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+    <div class="pages">
+        <ul class="pagination">
+            {% if products.has_previous %}
+            <li class="page-item"><a class="page-link"
+                    href="?category={{ category_id }}&subcategory={{ subcategory_id }}&price_range={{ price_range }}&sort_by={{ sort_by }}&sort_by_name={{ sort_by_name }}&page=1">First</a>
+            </li>
+            <li class="page-item"><a class="page-link"
+                    href="?category={{ category_id }}&subcategory={{ subcategory_id }}&price_range={{ price_range }}&sort_by={{ sort_by }}&sort_by_name={{ sort_by_name }}&page={{ products.previous_page_number }}">Previous</a>
+            </li>
+            {% endif %}
+
+            {% if products.number %}
+            <li class="page-item active"><span class="page-link">{{ products.number }}</span></li>
+            {% endif %}
+
+            {% if products.has_next %}
+            <li class="page-item"><a class="page-link"
+                    href="?category={{ category_id }}&subcategory={{ subcategory_id }}&price_range={{ price_range }}&sort_by={{ sort_by }}&sort_by_name={{ sort_by_name }}&page={{ products.next_page_number }}">Next</a>
+            </li>
+            <li class="page-item"><a class="page-link"
+                    href="?category={{ category_id }}&subcategory={{ subcategory_id }}&price_range={{ price_range }}&sort_by={{ sort_by }}&sort_by_name={{ sort_by_name }}&page={{ products.paginator.num_pages }}">Last</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    </div>
+
+
+</section>
+
+{% endblock %}
